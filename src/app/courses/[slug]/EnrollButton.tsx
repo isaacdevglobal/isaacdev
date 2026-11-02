@@ -38,10 +38,10 @@ export default function EnrollButton({
       <button
         onClick={handleEnroll}
         disabled={loading}
-        className="rounded-lg px-6 py-3 font-semibold text-bg disabled:opacity-60"
+        className="rounded-lg px-6 py-3 font-semibold text-bg transition hover:brightness-110 disabled:opacity-60"
         style={{ background: "var(--learngth)" }}
       >
-        {loading ? "Enrolling..." : "Enroll for free"}
+        {loading ? "Starting..." : "▶ Start course (free)"}
       </button>
       {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
     </div>
