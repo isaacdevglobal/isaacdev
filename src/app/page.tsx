@@ -1,3 +1,5 @@
+import SiteHeader from "@/components/SiteHeader";
+
 type Product = {
   grey: string;
   accent: string;
@@ -40,15 +42,7 @@ const products: Product[] = [
 export default function Home() {
   return (
     <main className="min-h-screen bg-bg text-white">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <div className="text-2xl font-bold">
-          <span className="text-ash">Isaac</span>
-          <span className="text-mint">Dev</span>
-        </div>
-        <a href="#products" className="text-sm text-white/70 hover:text-white">
-          Products
-        </a>
-      </header>
+      <SiteHeader />
 
       <section className="mx-auto max-w-6xl px-6 py-24">
         <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">
