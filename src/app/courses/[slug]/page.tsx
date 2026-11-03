@@ -10,6 +10,7 @@ import { categoryGradient, categoryIcon } from "@/lib/courses";
 import EnrollButton from "./EnrollButton";
 import LessonProgressButton from "./LessonProgressButton";
 import ReviewForm from "./ReviewForm";
+import ProjectSection from "./ProjectSection";
 
 type ReviewProfile = { full_name: string | null; username: string | null };
 type ReviewRow = {
@@ -259,6 +260,8 @@ export default async function CoursePage({
             );
           })}
         </ol>
+
+        <ProjectSection courseId={course.id} userId={user?.id ?? null} enrolled={enrolled} allDone={total > 0 && done === total} />
 
         <h2 id="reviews" className="mt-16 scroll-mt-24 text-2xl font-semibold">
           Reviews

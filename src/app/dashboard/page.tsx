@@ -24,6 +24,10 @@ export default async function DashboardPage() {
     .from("user_roles")
     .select("role")
     .eq("user_id", user.id);
+  const roleList = (roles ?? []).map((r) => r.role);
+
+  const quick =
+    "rounded-xl bg-white/5 px-5 py-3 text-sm transition hover:bg-white/10";
 
   return (
     <main className="min-h-screen bg-bg text-white">
@@ -42,18 +46,42 @@ export default async function DashboardPage() {
         <p className="mt-2 text-white/60">{user.email}</p>
 
         <div className="mt-4 flex flex-wrap gap-2">
-          {(roles ?? []).map((r) => (
+          {roleList.map((r) => (
             <span
-              key={r.role}
+              key={r}
               className="rounded-full border border-mint px-3 py-1 text-xs text-mint"
             >
-              {r.role}
+              {r}
             </span>
           ))}
         </div>
 
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/courses" className={quick}>
+            📚 Courses
+          </Link>
+          <Link href="/certificates" className={quick}>
+            🎓 My certificates
+          </Link>
+          {roleList.includes("instructor") && (
+            <Link href="/instructor" className={quick}>
+              🧑‍🏫 Teach
+            </Link>
+          )}
+          {(roleList.includes("instructor") || roleList.includes("admin")) && (
+            <Link href="/review" className={quick}>
+              📝 Project reviews
+            </Link>
+          )}
+          {roleList.includes("admin") && (
+            <Link href="/admin/courses" className={quick}>
+              🛠 Admin
+            </Link>
+          )}
+        </div>
+
         {profile?.username && (
-          <p className="mt-4 text-sm">
+          <p className="mt-6 text-sm">
             Your public profile:{" "}
             <Link
               href={`/u/${profile.username}`}

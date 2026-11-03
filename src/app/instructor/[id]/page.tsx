@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
 import { createClient } from "@/lib/supabase/server";
 import CourseEditor from "./CourseEditor";
+import ProjectSettings from "./ProjectSettings";
 
 export default async function EditCoursePage({
   params,
@@ -21,7 +22,9 @@ export default async function EditCoursePage({
 
   const { data: course } = await supabase
     .from("courses")
-    .select("id, title, slug, summary, description, category, level, status")
+    .select(
+      "id, title, slug, summary, description, category, level, status, project_brief, pass_mark"
+    )
     .eq("id", id)
     .eq("instructor_id", user.id)
     .maybeSingle();
@@ -44,6 +47,11 @@ export default async function EditCoursePage({
           ← My courses
         </Link>
         <CourseEditor course={course} lessons={lessons ?? []} />
+        <ProjectSettings
+          courseId={course.id}
+          initialBrief={course.project_brief ?? ""}
+          initialPassMark={Number(course.pass_mark)}
+        />
       </section>
     </main>
   );

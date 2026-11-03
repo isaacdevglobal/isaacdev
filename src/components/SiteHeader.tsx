@@ -16,6 +16,9 @@ export default async function SiteHeader() {
     roles = (data ?? []).map((r) => r.role);
   }
 
+  const isInstructor = roles.includes("instructor");
+  const isAdmin = roles.includes("admin");
+
   return (
     <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
       <Link href="/" className="text-2xl font-bold">
@@ -30,12 +33,17 @@ export default async function SiteHeader() {
         <Link href="/courses" className="hover:text-white">
           Courses
         </Link>
-        {roles.includes("instructor") && (
+        {isInstructor && (
           <Link href="/instructor" className="hover:text-white">
             Teach
           </Link>
         )}
-        {roles.includes("admin") && (
+        {(isInstructor || isAdmin) && (
+          <Link href="/review" className="hover:text-white">
+            Reviews
+          </Link>
+        )}
+        {isAdmin && (
           <Link href="/admin/courses" className="hover:text-white">
             Admin
           </Link>
