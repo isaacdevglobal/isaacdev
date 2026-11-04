@@ -1,4 +1,5 @@
 import SiteHeader from "@/components/SiteHeader";
+import LearngthNav from "@/components/LearngthNav";
 import CourseExplorer from "@/components/CourseExplorer";
 import { createClient } from "@/lib/supabase/server";
 import type { CourseItem, Progress } from "@/lib/courses";
@@ -79,6 +80,7 @@ export default async function CoursesPage() {
   return (
     <main className="min-h-screen bg-bg text-white">
       <SiteHeader />
+      <LearngthNav />
 
       <section className="mx-auto max-w-6xl px-6 pb-24">
         <h1 className="text-4xl font-bold sm:text-5xl">

@@ -1,6 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
+import LearngthNav from "@/components/LearngthNav";
 import { createClient } from "@/lib/supabase/server";
 import CourseEditor from "./CourseEditor";
 import ProjectSettings from "./ProjectSettings";
@@ -42,6 +43,7 @@ export default async function EditCoursePage({
   return (
     <main className="min-h-screen bg-bg text-white">
       <SiteHeader />
+      <LearngthNav />
       <section className="mx-auto max-w-3xl px-6 pb-24">
         <Link href="/instructor" className="text-sm text-white/50 hover:text-white">
           ← My courses

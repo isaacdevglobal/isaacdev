@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
+import LearngthNav from "@/components/LearngthNav";
 import { createClient } from "@/lib/supabase/server";
 import GradeForm from "./GradeForm";
 
@@ -120,6 +121,7 @@ export default async function ReviewPage() {
   return (
     <main className="min-h-screen bg-bg text-white">
       <SiteHeader />
+      <LearngthNav />
       <section className="mx-auto max-w-4xl px-6 pb-24">
         <h1 className="text-3xl font-bold">Project reviews</h1>
 

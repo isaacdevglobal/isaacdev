@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
+import LearngthNav from "@/components/LearngthNav";
 import { createClient } from "@/lib/supabase/server";
 import CertificateActions from "./CertificateActions";
 
@@ -33,6 +34,7 @@ export default async function CertificatesPage() {
   return (
     <main className="min-h-screen bg-bg text-white">
       <SiteHeader />
+      <LearngthNav />
       <section className="mx-auto max-w-3xl px-6 pb-24">
         <h1 className="text-3xl font-bold">My certificates</h1>
 

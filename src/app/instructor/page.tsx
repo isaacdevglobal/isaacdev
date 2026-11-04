@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
+import LearngthNav from "@/components/LearngthNav";
 import { createClient } from "@/lib/supabase/server";
 
 type MyCourse = { id: string; title: string; status: string };
@@ -42,6 +43,7 @@ export default async function InstructorPage() {
   return (
     <main className="min-h-screen bg-bg text-white">
       <SiteHeader />
+      <LearngthNav />
 
       <section className="mx-auto max-w-4xl px-6 pb-24">
         <div className="flex items-center justify-between">

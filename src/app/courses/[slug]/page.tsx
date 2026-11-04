@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SiteHeader from "@/components/SiteHeader";
+import LearngthNav from "@/components/LearngthNav";
 import StarRating from "@/components/StarRating";
 import SaveButton from "@/components/SaveButton";
 import ShareButton from "@/components/ShareButton";
@@ -111,6 +112,7 @@ export default async function CoursePage({
   return (
     <main className="min-h-screen bg-bg text-white">
       <SiteHeader />
+      <LearngthNav />
 
       <section className="mx-auto max-w-4xl px-6 pb-24">
         <Link href="/courses" className="text-sm text-white/50 hover:text-white">
